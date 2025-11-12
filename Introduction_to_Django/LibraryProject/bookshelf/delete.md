@@ -1,6 +1,5 @@
-```markdown
-# Delete Operation
+from bookshelf.models import Book
 
-```python
+book = Book.objects.get(title="Nineteen Eighty-Four")
 book.delete()
-print("Remaining:", Book.objects.count())
+print("Book deleted. Remaining books:", Book.objects.count())
