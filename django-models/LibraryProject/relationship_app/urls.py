@@ -4,6 +4,9 @@ from . import views
 app_name = 'relationship_app'
 
 urlpatterns = [
+    # Function-based view
     path('books/', views.list_books, name='list_books'),
+    
+    # Class-based view – MUST use .as_view()
     path('library/<int:pk>/', views.LibraryDetailView.as_view(), name='library_detail'),
 ]
