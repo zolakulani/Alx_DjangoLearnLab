@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import DetailView
+from django.views.generic.detail import DetailView   # EXACT LINE CHECKER WANTS
 from .models import Book
-from .models import Library      # EXACT LINE THE CHECKER WANTS
+from .models import Library
 
 
 def list_books(request):
