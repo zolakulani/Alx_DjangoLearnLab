@@ -36,6 +36,13 @@ def register(request):
     return render(request, 'relationship_app/register.html', {'form': form})
 
 
-# These two use built-in views + template_name → checker loves this
-login_view = LoginView.as_view(template_name='relationship_app/login.html')
-logout_view = LogoutView.as_view(template_name='relationship_app/logout.html')
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('relationship_app:list_books')
+    else:
+        form = UserCreationForm()
+    return render(request, 'relationship_app/register.html', {'form': form})
