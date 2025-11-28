@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Detail</title>
+</head>
+<body>
+    <h1>Library: {{ library.name }}</h1>
+    <h2>Books in Library:</h2>
+    {% if books %}
+        <ul>
+            {% for book in books %}
+                <li>{{ book.title }} by {{ book.author.name }} (Published {{ book.publication_year|default:"Unknown" }})</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No books in this library yet.</p>
+    {% endif %}
+    <a href="{% url 'relationship_app:list_books' %}">← Back to All Books</a>
+</body>
+</html>
